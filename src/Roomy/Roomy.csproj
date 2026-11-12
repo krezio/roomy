@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Roomy</RootNamespace>
+    <AssemblyName>Roomy</AssemblyName>
+    <Version>0.1.1</Version>
+    <Product>Roomy</Product>
+    <Company>krezio</Company>
+    <Authors>krezio</Authors>
+    <Description>Find out what's filling up your PC and free up space safely.</Description>
+    <Copyright>© 2026 krezio</Copyright>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <NoWarn>$(NoWarn);SYSLIB1054;CA1416</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="Exists('Assets\roomy.ico')">
+    <ApplicationIcon>Assets\roomy.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('Assets\roomy.ico')">
+    <Resource Include="Assets\roomy.ico" />
+  </ItemGroup>
+
+</Project>
