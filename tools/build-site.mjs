@@ -59,6 +59,7 @@ function foot(root) {
     <span class="brand"><img src="${root}assets/logo.svg" alt="" width="18" height="18"><span>Roomy</span></span>
     <span>Made by <a href="https://krezio.xyz">krezio</a> · <a href="https://github.com/krezio/roomy" target="_blank" rel="noopener">GitHub</a> · <a href="${root}guides/">Guides</a> · <a href="${root}privacy.html">Privacy</a></span>
   </footer>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "595ddd43099c44e98b23cda95087c4b7"}'></script>
 </body>
 </html>
 `;
