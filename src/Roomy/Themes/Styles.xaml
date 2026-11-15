@@ -194,7 +194,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Bg" CornerRadius="99" Padding="13,6" Background="{StaticResource Surface2Brush}"
+                    <Border x:Name="Bg" CornerRadius="14" Padding="13,6" Background="{StaticResource Surface2Brush}"
                             BorderBrush="{StaticResource LineBrush}" BorderThickness="1">
                         <ContentPresenter />
                     </Border>

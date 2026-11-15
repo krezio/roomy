@@ -94,7 +94,7 @@
                         </StackPanel>
                         <TextBlock Grid.Column="3" Text="{Binding SizeText}" FontSize="18" FontWeight="SemiBold"
                                    VerticalAlignment="Center" Margin="0,0,14,0" />
-                        <Border Grid.Column="4" CornerRadius="99" Padding="10,4" Background="{Binding BadgeBg}"
+                        <Border Grid.Column="4" CornerRadius="10" Padding="10,4" Background="{Binding BadgeBg}"
                                 VerticalAlignment="Center">
                             <TextBlock Text="{Binding SafetyText}" FontSize="10.5" FontWeight="Bold" Foreground="{Binding BadgeFg}" />
                         </Border>
@@ -227,7 +227,7 @@
                                         <TextBlock Text="{Binding Title}" FontSize="15" FontWeight="SemiBold" />
                                         <TextBlock Text="{Binding Subtitle}" FontSize="12" Foreground="{StaticResource MutedBrush}" Margin="0,2,0,0" />
                                     </StackPanel>
-                                    <Border Grid.Column="2" CornerRadius="99" Padding="12,5" Background="{Binding StatusBg}" VerticalAlignment="Center">
+                                    <Border Grid.Column="2" CornerRadius="12" Padding="12,5" Background="{Binding StatusBg}" VerticalAlignment="Center">
                                         <TextBlock Text="{Binding StatusText}" FontSize="12" FontWeight="SemiBold" Foreground="{Binding StatusBrush}" />
                                     </Border>
                                 </Grid>
