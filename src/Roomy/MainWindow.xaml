@@ -137,8 +137,9 @@
                             </StackPanel>
                             <ItemsControl ItemsSource="{Binding VisibleItems}" ItemTemplate="{StaticResource ItemRowTemplate}"
                                           Visibility="{Binding ShowItemList, Converter={StaticResource VisIf}}" />
-                            <TextBlock Text="{Binding HiddenText}" Foreground="{StaticResource FaintBrush}" FontSize="12"
-                                       Margin="38,6,0,0" Visibility="{Binding HasHidden, Converter={StaticResource VisIf}}" />
+                            <Button Style="{StaticResource LinkButton}" Command="{Binding ToggleItemsCommand}"
+                                    Content="{Binding ToggleItemsText}" FontSize="12" HorizontalAlignment="Left"
+                                    Margin="38,6,0,0" Visibility="{Binding CanToggleItems, Converter={StaticResource VisIf}}" />
                         </StackPanel>
                     </Border>
                 </StackPanel>

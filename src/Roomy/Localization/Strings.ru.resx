@@ -566,7 +566,10 @@
     <value>На диске {0} теперь {1} свободно.</value>
   </data>
   <data name="MoreItems" xml:space="preserve">
-    <value>+ ещё {0} (войдут, если поставить галочку)</value>
+    <value>+ Показать ещё {0} (войдут, если поставить галочку)</value>
+  </data>
+  <data name="ShowFewerItems" xml:space="preserve">
+    <value>Свернуть список</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
     <value>Roomy {0}</value>

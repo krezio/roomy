@@ -23,15 +23,24 @@ public sealed class CategoryVM : ObservableObject
             Items.Add(vm);
         }
         ToggleExpandCommand = new RelayCommand(() => IsExpanded = !IsExpanded);
+        ToggleItemsCommand = new RelayCommand(ToggleItems, () => CanToggleItems);
         OpenSettingsCommand = new RelayCommand(() => Shell.Open("ms-settings:storagesense"));
         TurnOffHibernationCommand = new RelayCommand(() => _ = _owner.TurnOffHibernationAsync(this));
     }
 
     public CleanupCategory Model { get; }
     public ObservableCollection<ItemVM> Items { get; } = [];
-    public IEnumerable<ItemVM> VisibleItems => Items.Take(MaxVisible);
-    public bool HasHidden => Items.Count > MaxVisible;
-    public string HiddenText => Loc.Format("MoreItems", Items.Count - MaxVisible);
+    bool _showAllItems;
+    public IEnumerable<ItemVM> VisibleItems => _showAllItems ? Items : Items.Take(MaxVisible);
+    public bool CanToggleItems => ShowItemList && Items.Count > MaxVisible;
+    public string ToggleItemsText => _showAllItems ? S.ShowFewerItems : Loc.Format("MoreItems", Items.Count - MaxVisible);
+
+    void ToggleItems()
+    {
+        _showAllItems = !_showAllItems;
+        Raise(nameof(VisibleItems));
+        Raise(nameof(ToggleItemsText));
+    }
 
     public string Title => Model.Title;
     public string Description => Model.Description;
@@ -93,6 +102,7 @@ public sealed class CategoryVM : ObservableObject
     }
 
     public ICommand ToggleExpandCommand { get; }
+    public ICommand ToggleItemsCommand { get; }
     public ICommand OpenSettingsCommand { get; }
     public ICommand TurnOffHibernationCommand { get; }
     public ICommand RestartAdminCommand => _owner.RestartAdminCommand;

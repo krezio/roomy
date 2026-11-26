@@ -1124,9 +1124,15 @@
     },
     {
       "key": "MoreItems",
-      "en": "+ {0} more (included when the box is ticked)",
-      "ru": "+ ещё {0} (войдут, если поставить галочку)",
-      "zh-Hans": "+ 还有 {0}（勾选后一并计入）"
+      "en": "+ Show {0} more (included when the box is ticked)",
+      "ru": "+ Показать ещё {0} (войдут, если поставить галочку)",
+      "zh-Hans": "+ 显示其余 {0} 项（勾选后一并计入）"
+    },
+    {
+      "key": "ShowFewerItems",
+      "en": "Show less",
+      "ru": "Свернуть список",
+      "zh-Hans": "收起列表"
     },
     {
       "key": "AppVersion",

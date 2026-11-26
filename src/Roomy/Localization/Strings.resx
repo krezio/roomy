@@ -566,7 +566,10 @@
     <value>Your {0} drive now has {1} free.</value>
   </data>
   <data name="MoreItems" xml:space="preserve">
-    <value>+ {0} more (included when the box is ticked)</value>
+    <value>+ Show {0} more (included when the box is ticked)</value>
+  </data>
+  <data name="ShowFewerItems" xml:space="preserve">
+    <value>Show less</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
     <value>Roomy {0}</value>

@@ -568,8 +568,11 @@ public static class S
     /// <summary>Your {0} drive now has {1} free.</summary>
     public static string DriveNowFree => Loc.Get("DriveNowFree");
 
-    /// <summary>+ {0} more (included when the box is ticked)</summary>
+    /// <summary>+ Show {0} more (included when the box is ticked)</summary>
     public static string MoreItems => Loc.Get("MoreItems");
+
+    /// <summary>Show less</summary>
+    public static string ShowFewerItems => Loc.Get("ShowFewerItems");
 
     /// <summary>Roomy {0}</summary>
     public static string AppVersion => Loc.Get("AppVersion");

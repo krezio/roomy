@@ -566,7 +566,10 @@
     <value>你的 {0} 盘现在有 {1} 可用空间。</value>
   </data>
   <data name="MoreItems" xml:space="preserve">
-    <value>+ 还有 {0}（勾选后一并计入）</value>
+    <value>+ 显示其余 {0} 项（勾选后一并计入）</value>
+  </data>
+  <data name="ShowFewerItems" xml:space="preserve">
+    <value>收起列表</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
     <value>Roomy {0}</value>

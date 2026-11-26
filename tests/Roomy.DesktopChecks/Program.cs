@@ -44,6 +44,7 @@ static class Program
     static async Task CheckLifecycle(string? snapshot)
     {
         var vm = new MainVM(demo: true);
+        CheckCategoryItems(vm);
         var window = new MainWindow(vm)
         {
             Left = -20000, Top = -20000, ShowActivated = false, ShowInTaskbar = false,
@@ -72,6 +73,39 @@ static class Program
         }
         window.Close();
         Console.WriteLine("PASS: tray lifecycle, snooze, resume, reminder opt-out and normal close.");
+    }
+
+    static void CheckCategoryItems(MainVM owner)
+    {
+        foreach (int count in new[] { 39, 40, 41, 86 })
+        {
+            var model = Catalog.Create("downloads");
+            for (int i = 0; i < count; i++)
+                model.Items.Add(new CleanupItem { Name = $"File {i}", Paths = [], Size = 1, IsFile = true });
+
+            var category = new CategoryVM(model, owner);
+            Require(category.VisibleItems.Count() == Math.Min(40, count), "The initial list should be limited to 40 items.");
+            Require(category.CanToggleItems == (count > 40), "Only long lists should offer expansion.");
+            Require(category.ToggleItemsCommand.CanExecute(null) == (count > 40), "The command should be available only for long lists.");
+            if (!category.CanToggleItems) continue;
+
+            category.IsSelected = true;
+            var changes = new List<string?>();
+            category.PropertyChanged += (_, e) => changes.Add(e.PropertyName);
+            category.ToggleItemsCommand.Execute(null);
+            Require(category.VisibleItems.SequenceEqual(category.Items), "Expansion should show every original item.");
+            Require(category.SelectedSize == count, "Expansion must preserve selection.");
+            Require(changes.Contains(nameof(CategoryVM.VisibleItems)) && changes.Contains(nameof(CategoryVM.ToggleItemsText)),
+                "Expansion must notify the item list and toggle label bindings.");
+
+            category.Items[^1].IsSelected = false;
+            category.ToggleItemsCommand.Execute(null);
+            Require(category.VisibleItems.Count() == 40, "Collapsing should restore the preview.");
+            Require(category.SelectedItems().Count == count - 1, "Collapsing must preserve individual selections.");
+            category.ToggleItemsCommand.Execute(null);
+            Require(!category.VisibleItems.Last().IsSelected, "Reopening must preserve hidden item selections.");
+        }
+        Console.WriteLine("PASS: category list expansion and selection preservation.");
     }
 
     static async Task CheckSettings(DesktopController desktop, Window owner, string? snapshot)
