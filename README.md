@@ -145,6 +145,8 @@ site/           roomy.krezio.xyz
 
 ## Contributing
 
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. In short: open an issue first for anything that isn't a bug fix or translation, and make sure you've actually run what you changed.
+
 Run the background settings and reminder tests on Windows:
 
 ```bash
